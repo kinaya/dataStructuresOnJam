@@ -21,8 +21,7 @@ export default function Post({post}) {
 }
 
 export async function getStaticPaths() {
-
-  const res = await fetch('http://datastructuresonjam.hemsida.eu/wp-json/wp/v2/posts')
+  const res = await fetch(`${process.env.API_URL}/posts`)
   const posts = await res.json()
 
   const paths = posts.map(post => {
@@ -41,7 +40,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({params}) {
-  const res = await fetch(`http://datastructuresonjam.hemsida.eu/wp-json/wp/v2/posts/${params.id}`)
+  const res = await fetch(`${process.env.API_URL}/posts/${params.id}`)
   const post = await res.json()
 
   return {

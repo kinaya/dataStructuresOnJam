@@ -6,7 +6,9 @@ import Excerpts from '../components/excerpts'
 import utilStyles from '../styles/utils.module.scss'
 import fetch from 'node-fetch'
 
+
 export default function Home({pages,posts}) {
+
   return (
     <Layout home>
       <Head>
@@ -37,10 +39,10 @@ export default function Home({pages,posts}) {
 
 export async function getStaticProps() {
 
-  const pagesRes = await fetch('http://datastructuresonjam.hemsida.eu/wp-json/wp/v2/pages')
+  const pagesRes = await fetch(`${process.env.API_URL}/pages`)
   const pages = await pagesRes.json()
 
-  const postsRes = await fetch('http://datastructuresonjam.hemsida.eu/wp-json/wp/v2/posts?_embed')
+  const postsRes = await fetch(`${process.env.API_URL}/posts?_embed`)
   const posts = await postsRes.json()
 
   return {

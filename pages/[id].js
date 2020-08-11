@@ -1,4 +1,4 @@
-import Layout from '../components/layout'
+import Layout, { siteTitle } from '../components/layout'
 import Head from 'next/head'
 import fetch from 'node-fetch'
 import utilStyles from '../styles/utils.module.scss'
@@ -8,7 +8,7 @@ export default function Post({post}) {
     <Layout>
 
       <Head>
-        <title>{post.title.rendered}</title>
+        <title>{post.title.rendered} | {siteTitle}</title>
       </Head>
 
       <article>

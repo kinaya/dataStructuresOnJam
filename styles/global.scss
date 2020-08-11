@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 html,
 body {
   padding: 0;
@@ -6,7 +8,7 @@ body {
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
   font-size: 18px;
-  color: #111111;
+  color: $black;
 }
 
 * {
@@ -14,15 +16,16 @@ body {
 }
 
 a {
-  color: #111111;
+  color: $black;
   text-decoration: underline;
   transition: all 0.3s;
   &:hover, &:active, &:focus {
-    color: #2A9D8F;
+    color: $blue;
   }
 }
 
 img {
   max-width: 100%;
   display: block;
+  margin: 0 auto;
 }

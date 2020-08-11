@@ -1,0 +1,37 @@
+/* Colors */
+$orange: #F4A261;
+$red: #E76F51;
+$gray: #282c34;
+$blue: #2A9D8F;
+$yellow: #E9C46A;
+$white: #FFFFFF;
+$black: #111111;
+
+/* Backgrounds */
+.gray-bg {
+  background-color: $gray;
+  color: $white;
+  a {
+    color: $white;
+    &:hover, &:active, &:focus {
+      color: $blue;
+    }
+  }
+}
+.blue-bg {
+  background-color: $blue;
+}
+.orange-bg {
+  background-color: $orange;
+}
+.red-bg {
+  background-color: $red;
+}
+.yellow-bg {
+  background-color: $yellow;
+}
+
+/* Font colors */
+.white { color: $white; }
+.black { color: $black; }
+.blue { color: $blue; }

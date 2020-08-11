@@ -1,22 +1,7 @@
-/* Colors */
-$orange: #F4A261;
-$red: #E76F51;
-$gray: #282c34;
-$blue: #2A9D8F;
-$yellow: #E9C46A;
-$white: #FFFFFF;
-$black: #111111;
-
-/* Breakpoints */
-$mobile: 480px;
-$tablet: 679px;
-$desktop: 1024px;
-
-
 .section {
   padding: 4em 0;
   margin: 0;
-  background-color: #F4A261;
+  composes: orange-bg from '../styles/variables.scss';
   .inner {
     max-width: 900px;
     margin: 0 auto;
@@ -33,22 +18,15 @@ $desktop: 1024px;
   justify-content: space-between;
   margin: 2em auto;
 
-  @media(min-width: $tablet) {
-
-  }
-  @media(min-width: $desktop) {
-
-  }
-
   > a {
     flex-basis: 100%;
-    @media(min-width: $mobile) {
+    @media(min-width: 480px) {
       flex-basis: 48%;
     }
-    @media(min-width: $tablet) {
+    @media(min-width: 679px) {
       flex-basis: 31%;
     }
-    @media(min-width: $desktop) {
+    @media(min-width: 1024px) {
       flex-basis: 22%;
     }
   }

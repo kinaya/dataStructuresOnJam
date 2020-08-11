@@ -8,33 +8,38 @@ export const siteTitle = 'Data Structures on JAM'
 export default function Layout({ children, home }) {
   return (
     <>
-
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="Data structures on a JAM-stack using Next.js"
         />
         <meta
           property="og:image"
-          content={`https://og-image.now.sh/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+          content='/images/datastructures.png'
         />
         <meta name="og:title" content="Start" />
         <meta name="twitter:card" content="summary_large_image" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#00aba9" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
 
       {home ? (
         <header className={styles.header}>
           <h1>Data structures</h1>
-          <p>This is a simple page explaining data structures using JavaScript</p>
+          <p>A simple page explaining data structures using JavaScript</p>
           <img src="/images/datastructures.png" className="logo" alt="logo" />
         </header>
       ) : (
         <Link href="/">
           <a className={styles.arrow}>
-            <img src="/images/arrow.svg" alt="Hem" />
+            <img src="/images/arrow.svg" alt="Home" />
           </a>
         </Link>
       )}

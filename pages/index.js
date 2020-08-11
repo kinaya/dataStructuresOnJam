@@ -6,7 +6,6 @@ import Excerpts from '../components/excerpts'
 import utilStyles from '../styles/utils.module.scss'
 import fetch from 'node-fetch'
 
-
 export default function Home({pages,posts}) {
 
   return (

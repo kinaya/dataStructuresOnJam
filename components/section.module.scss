@@ -1,12 +1,3 @@
-/* Colors */
-$orange: #F4A261;
-$red: #E76F51;
-$gray: #282c34;
-$blue: #2A9D8F;
-$yellow: #E9C46A;
-$white: #FFFFFF;
-$black: #111111;
-
 .section {
   padding: 4em 0;
   margin: 0;
@@ -23,27 +14,20 @@ $black: #111111;
 
 .blue {
   composes: section;
-  background-color: $blue;
+  composes: blue-bg from '../styles/variables.scss'
 }
 
 .yellow {
   composes: section;
-  background-color: $yellow;
+  composes: yellow-bg from '../styles/variables.scss'
 }
 
 .red {
   composes: section;
-  background-color: $red;
+  composes: red-bg from '../styles/variables.scss'
 }
 
 .gray {
   composes: section;
-  background-color: $gray;
-
-  a {
-    color: $white;
-    &:hover, &:active, &:focus {
-      color: #2A9D8F;
-    }
-  }
+  composes: gray-bg from '../styles/variables.scss'
 }

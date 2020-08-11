@@ -1,5 +1,4 @@
 .excerpt {
-
   margin-bottom: 1em;
   text-decoration: none;
   text-align: center;
@@ -23,6 +22,7 @@
   &:hover, &:active, &:focus {
     color: #111111;
     text-decoration: none;
+
     .image {
       transform: scale(1.05)
     }

@@ -1,0 +1,49 @@
+/* Colors */
+$orange: #F4A261;
+$red: #E76F51;
+$gray: #282c34;
+$blue: #2A9D8F;
+$yellow: #E9C46A;
+$white: #FFFFFF;
+$black: #111111;
+
+.section {
+  padding: 4em 0;
+  margin: 0;
+
+  .inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1em;
+    @media(min-width: 480px) {
+      padding: 0 2em;
+    }
+  }
+}
+
+.blue {
+  composes: section;
+  background-color: $blue;
+}
+
+.yellow {
+  composes: section;
+  background-color: $yellow;
+}
+
+.red {
+  composes: section;
+  background-color: $red;
+}
+
+.gray {
+  composes: section;
+  background-color: $gray;
+
+  a {
+    color: $white;
+    &:hover, &:active, &:focus {
+      color: #2A9D8F;
+    }
+  }
+}

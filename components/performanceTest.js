@@ -15,7 +15,6 @@ const PerformanceTest = () => {
     await fetch('https://jam.alvineandersson.se/api/bubbleSort')
       .then(res => res.json())
       .then(data => console.log('data', data))
-    })
 
     console.log('end of test')
     //setBubbleSortResult(bubble)

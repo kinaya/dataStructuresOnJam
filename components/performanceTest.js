@@ -6,7 +6,7 @@ const PerformanceTest = () => {
 
   const [bubbleSortResult, setBubbleSortResult] = useState(false)
   const [insertionSortResult, setInsertionSortResult] = useState(false)
-  //const [selectionSortResult, setSelectionSortResult] = useState(false)
+  const [selectionSortResult, setSelectionSortResult] = useState(false)
 
   const testPerformance = async () => {
 
@@ -20,6 +20,12 @@ const PerformanceTest = () => {
       .then(res => res.json())
       .then(data => {
         setInsertionSortResult(data)
+      })
+
+    await fetch('/api/selectionSort')
+      .then(res => res.json())
+      .then(data => {
+        setSelectionSortResult(data)
       })
 
 
@@ -41,8 +47,9 @@ const PerformanceTest = () => {
   return (
     <div>
       <button onClick={testPerformance}>Run test!</button>
-      <div>{bubbleSortResult}</div>
-      <div>{insertionSortResult}</div>
+      <div>Bubble sort: {bubbleSortResult}</div>
+      <div>Insertion sort: {insertionSortResult}</div>
+      <div>Selection sort: {selectionSortResult}</div>
     </div>
   )
 }

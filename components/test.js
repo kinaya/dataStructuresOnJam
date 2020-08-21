@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import LoadingSpinner from '@bit/folland87.a24ui.loading-spinner';
 
 const Test = ({name, time}) => {
 
@@ -9,7 +8,7 @@ const Test = ({name, time}) => {
     <StyledTest>
       <h3>{name}</h3>
       {time == 'fetching' && (
-        <LoadingSpinner />
+        <>Loading...</>
       )}
       {time > 0 && (
         <>{time.toFixed(3)}s</>

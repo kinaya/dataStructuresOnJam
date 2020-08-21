@@ -1,11 +1,13 @@
 import Head from 'next/head'
-import styles from './layout.module.scss'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import utilStyles from '../styles/utils.module.scss'
 import Link from 'next/link'
 
 export const siteTitle = 'Data Structures on JAM'
 
-export default function Layout({ children, home }) {
+const Layout = ({children, home}) => {
+
   return (
     <>
       <Head>
@@ -31,16 +33,16 @@ export default function Layout({ children, home }) {
       </Head>
 
       {home ? (
-        <header className={styles.header}>
+        <Header>
           <h1>Data structures</h1>
           <p>A simple page explaining data structures using JavaScript</p>
           <img src="/images/datastructures.png" className="logo" alt="logo" />
-        </header>
+        </Header>
       ) : (
         <Link href="/">
-          <a className={styles.arrow}>
+          <Arrow>
             <img src="/images/arrow.svg" alt="Home" />
-          </a>
+          </Arrow>
         </Link>
       )}
 
@@ -50,12 +52,51 @@ export default function Layout({ children, home }) {
             {children}
           </>
         ):(
-          <div className={styles.container}>
+          <Container>
             {children}
-          </div>
+          </Container>
         )}
       </main>
 
     </>
   )
 }
+
+export default Layout
+
+const Container = styled.div`
+  max-width: 900px;
+  margin: 4em auto;
+  padding: 0 1em;
+  @media(min-width: 480px) {
+    padding: 0 2em;
+  }
+`
+const Header = styled.header`
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 0 1em;
+  @media(min-width: 480px) {
+    padding: 0 2em;
+  }
+`
+const Arrow = styled.a`
+  position: fixed;
+  top: 10px;
+  left: 15px;
+  display: flex;
+  padding: 0.5em;
+  text-decoration: none;
+  img {
+    transition: all 0.3s;
+    &:hover, &:active, &:focus {
+      transform: translateX(-8px);
+    }
+  }
+`

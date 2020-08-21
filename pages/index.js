@@ -2,9 +2,11 @@ import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import Link from 'next/link'
 import Section from '../components/section'
-import Excerpts from '../components/excerpts'
+import PostsGrid from '../components/postsGrid'
+import PerformanceTest from '../components/performanceTest'
 import utilStyles from '../styles/utils.module.scss'
 import fetch from 'node-fetch'
+import { useState } from 'react'
 
 export default function Home({pages,posts}) {
 
@@ -15,21 +17,23 @@ export default function Home({pages,posts}) {
       </Head>
 
       {pages.filter(page => page.id === 2).map(page => {
-        return <Section displayTitle={true} color="blue" key={page.id} page={page} />
+        return <Section displayTitle={true} title={page.title.rendered} text={page.content.rendered} color="blue" key={page.id} page={page} />
       })}
 
       {pages.filter(page => page.id === 34).map(page => {
-        return <Section displayTitle={true} color="yellow" key={page.id} page={page} />
+        return <Section displayTitle={true} title={page.title.rendered} text={page.content.rendered} color="yellow" key={page.id} page={page} />
       })}
 
-      <Excerpts posts={posts} />
+      <PerformanceTest />
+
+      <PostsGrid posts={posts} />
 
       {pages.filter(page => page.id === 46).map(page => {
-        return <Section displayTitle={true} color="red" key={page.id} page={page} />
+        return <Section displayTitle={true} title={page.title.rendered} text={page.content.rendered} color="red" key={page.id} page={page} />
       })}
 
       {pages.filter(page => page.id === 42).map(page => {
-        return <Section color="gray" key={page.id} page={page} />
+        return <Section title={page.title.rendered} text={page.content.rendered} color="gray" key={page.id} page={page} />
       })}
 
     </Layout>

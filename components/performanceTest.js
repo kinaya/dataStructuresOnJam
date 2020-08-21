@@ -10,8 +10,8 @@ const PerformanceTest = () => {
 
   const testPerformance = async () => {
 
-    const bubble = await fetch('/api/bubbleSort').then(res => {
-      console.log(bubble)
+    await fetch('/api/bubbleSort').then(res => {
+      console.log(res)
     })
     //setBubbleSortResult(bubble)
 

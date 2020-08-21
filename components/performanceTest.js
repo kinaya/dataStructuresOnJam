@@ -5,18 +5,25 @@ import ReactDOM from 'react-dom'
 const PerformanceTest = () => {
 
   const [bubbleSortResult, setBubbleSortResult] = useState(false)
-  //const [insertionSortResult, setInsertionSortResult] = useState(false)
+  const [insertionSortResult, setInsertionSortResult] = useState(false)
   //const [selectionSortResult, setSelectionSortResult] = useState(false)
 
   const testPerformance = async () => {
 
-    console.log('test')
-
-    await fetch('https://jam.alvineandersson.se/api/bubbleSort')
+    await fetch('/api/bubbleSort')
       .then(res => res.json())
-      .then(data => console.log('data', data))
+      .then(data => {
+        setBubbleSortResult(data)
+      })
 
-    console.log('end of test')
+    await fetch('/api/insertionSort')
+      .then(res => res.json())
+      .then(data => {
+        setInsertionSortResult(data)
+      })
+
+
+
     //setBubbleSortResult(bubble)
 
 /*    bubbleSort().then(result => {
@@ -35,6 +42,7 @@ const PerformanceTest = () => {
     <div>
       <button onClick={testPerformance}>Run test!</button>
       <div>{bubbleSortResult}</div>
+      <div>{insertionSortResult}</div>
     </div>
   )
 }

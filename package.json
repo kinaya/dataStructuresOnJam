@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@bit/folland87.a24ui.loading-spinner": "^0.1.22",
     "next": "9.3.5",
     "node-fetch": "^2.6.0",
     "prop-types": "^15.7.2",

@@ -23,7 +23,7 @@ const bubbleSort = (array) => {
 export default async (req, res) => {
 
   var array = []
-  for(let i = 0; i <= 7000; i++) {
+  for(let i = 0; i <= 10000; i++) {
     array.push(Math.floor(Math.random() * Math.floor(7000)))
   }
 

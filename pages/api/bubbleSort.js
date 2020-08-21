@@ -1,12 +1,8 @@
-const bubbleSort = () => {
+const bubbleSort = (array) => {
   return new Promise((resolve, reject) => {
 
-    var array = []
-    for(let i = 0; i <= items; i++) {
-      array.push(Math.floor(Math.random() * Math.floor(items)))
-    }
+    var start = process.hrtime()
 
-    const start = performance.now()
     for(let i = 0; i < array.length - 1; i++) {
       for(let y = 0; y < array.length - 1 - i; y++) {
         if(array[y] > array[y + 1]) {
@@ -16,21 +12,27 @@ const bubbleSort = () => {
         }
       }
     }
-    const end = performance.now()
-    resolve( ((end-start) * 0.001).toFixed(2) )
+    var end = process.hrtime(start)
+    const seconds = (end[0]* 1000000000 + end[1]) / 1000000000;
+
+    resolve(time)
 
   })
 }
 
 export default async (req, res) => {
 
+  var array = []
+  for(let i = 0; i <= 7000; i++) {
+    array.push(Math.floor(Math.random() * Math.floor(7000)))
+  }
+
   try {
-    const result = await bubbleSort()
+    const result = await bubbleSort(array)
     res.statusCode = 200
-    res.setHeader('Content-Type', 'application/json')
-    res.end(JSON.stringify(result))
+    res.json(result)
   } catch {
-    console.log(error)
+    console.log(result)
   }
 
 }

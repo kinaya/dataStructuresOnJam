@@ -17,9 +17,16 @@ const PerformanceTest = () => {
   useEffect(() => {
     webWorker = new WebWorker(worker);
     webWorker.addEventListener('message', event => {
-      console.log('Coming back from web worker!')
-      console.log('event', event)
-      console.log('data', event.data)
+      console.log('message from server', event.data.type, event.data.data)
+      if(event.data.type === 'bubbleSort') {
+        setBubbleSortResult(event.data.data)
+      }
+      if(event.data.type === 'insertionSort') {
+        setBubbleSortResult(event.data.data)
+      }
+      if(event.data.type === 'selectionSort') {
+        setBubbleSortResult(event.data.data)
+      }
     })
   }, []);
 
@@ -33,8 +40,9 @@ const PerformanceTest = () => {
 
   const testPerformance = async () => {
 
-    webWorker.postMessage('test');
-    //webWorker.postMessage('bubbleSort');
+    webWorker.postMessage('bubbleSort');
+    webWorker.postMessage('insertionSort');
+    webWorker.postMessage('selectionSort');
 
     //theWorker.postMessage('some data');
 

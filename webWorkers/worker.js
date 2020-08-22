@@ -2,49 +2,29 @@ export default () => {
 	self.addEventListener('message', e => { // eslint-disable-line no-restricted-globals
 		if (!e) return;
 
-    fetch('https://jam.alvineandersson.se/api/test')
-      .then(res => {
-        console.log('res', res)
-        return res.json()
-      })
-      .then(data => {
-        console.log(data)
-        const msg = {'type' : 'test', 'data' : data}
-        postMessage(msg)
-      })
-
-
-/*    switch(e.data) {
-      case 'test':
-        fetch('https://jam.alvineandersson.se/api/test')
-          .then(res => {
-            res.json()
-          })
-          .then(data => {
-            console.log(data)
-            const msg = {'type' : 'test', 'data' : data}
-            postMessage(msg)
-          })
-
+    switch(e.data) {
       case 'bubbleSort':
-        fetch('https://jam.alvineandersson.se/api/bubbleSort')
-          .then(res => {
-            console.log('res', res)
-            res.json()
-          })
-          .then(data => {
-            console.log(data)
-            const msg = {'type' : 'bubbleSort', 'data' : data}
-            postMessage(msg)
-          })
-
+        fetch('https://jam.alvineandersson.se/api/bubbleSort').then(res => {
+          return res.json()
+        }).then(data => {
+          const msg = {'type' : 'bubbleSort', 'data' : data}
+          postMessage(msg)
+        })
       case 'insertionSort':
+        fetch('https://jam.alvineandersson.se/api/insertionSort').then(res => {
+          return res.json()
+        }).then(data => {
+          const msg = {'type' : 'insertionSort', 'data' : data}
+          postMessage(msg)
+        })
       case 'selectionSort':
-    }*/
-
-
-
-
+        fetch('https://jam.alvineandersson.se/api/selectionSort').then(res => {
+          return res.json()
+        }).then(data => {
+          const msg = {'type' : 'selectionSort', 'data' : data}
+          postMessage(msg)
+        })
+    }
 
 	})
 }

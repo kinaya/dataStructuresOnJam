@@ -35,6 +35,9 @@ const PerformanceTest = () => {
 
   const testPerformance = async () => {
 
+    setBubbleSortResult('fetching')
+    setInsertionSortResult('fetching')
+    setSelectionSortResult('fetching')
     webWorker.postMessage('bubbleSort');
     webWorker.postMessage('insertionSort');
     webWorker.postMessage('selectionSort');

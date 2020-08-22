@@ -13,9 +13,10 @@ const insertionSort = (array) => {
       }
     }
 
-    for(let i = 0; i < 9000; i++) {
-      for(let y = 0; y < 9000; y++) {
-        console.log(y)
+    const array = []
+    for(let i = 0; i < 2000; i++) {
+      for(let y = 0; y < 2000; y++) {
+        array.push(y)
       }
     }
 

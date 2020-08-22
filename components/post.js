@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Post = ({id,image,title,text}) => {
 
   return (
-    <Link href={`/${id}`}><StyledPost>
+    <Link href={`/${id}`} as={`/${id}`}><StyledPost>
       {image && (
         <Image alt="alt" src={image}></Image>
       )}

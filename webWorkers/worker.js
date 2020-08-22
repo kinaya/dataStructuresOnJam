@@ -5,7 +5,7 @@ export default () => {
     fetch('https://jam.alvineandersson.se/api/test')
       .then(res => {
         console.log('res', res)
-        res.json()
+        return res.json()
       })
       .then(data => {
         console.log(data)

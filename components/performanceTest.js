@@ -22,10 +22,10 @@ const PerformanceTest = () => {
         setBubbleSortResult(event.data.data)
       }
       if(event.data.type === 'insertionSort') {
-        setBubbleSortResult(event.data.data)
+        setInsertionSortResult(event.data.data)
       }
       if(event.data.type === 'selectionSort') {
-        setBubbleSortResult(event.data.data)
+        setSelectionSortResult(event.data.data)
       }
     })
     webWorker.addEventListener('error', event => {

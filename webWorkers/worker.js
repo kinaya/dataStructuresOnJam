@@ -2,12 +2,19 @@ export default () => {
 	self.addEventListener('message', e => { // eslint-disable-line no-restricted-globals
 		if (!e) return;
 
-    console.log('In the web worker')
-    console.log('e', e.data)
+    fetch('https://jam.alvineandersson.se/api/test')
+      .then(res => {
+        console.log('res', res)
+        res.json()
+      })
+      .then(data => {
+        console.log(data)
+        const msg = {'type' : 'test', 'data' : data}
+        postMessage(msg)
+      })
 
-    const url = 'https://jam.alvineandersson.se/api/bubbleSort';
 
-    switch(e.data) {
+/*    switch(e.data) {
       case 'test':
         fetch('https://jam.alvineandersson.se/api/test')
           .then(res => {
@@ -33,7 +40,7 @@ export default () => {
 
       case 'insertionSort':
       case 'selectionSort':
-    }
+    }*/
 
 
 

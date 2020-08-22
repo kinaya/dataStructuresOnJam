@@ -33,7 +33,7 @@ const PerformanceTest = () => {
 
   const testPerformance = async () => {
 
-    webWorker.postMessage('bubble');
+    webWorker.postMessage('bubbleSort');
 
     //theWorker.postMessage('some data');
 

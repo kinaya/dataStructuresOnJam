@@ -15,7 +15,9 @@ const bubbleSort = (array) => {
     var end = process.hrtime(start)
     const seconds = (end[0]* 1000000000 + end[1]) / 1000000000;
 
-    resolve(seconds)
+    var res = JSON.stringify({seconds})
+
+    resolve(res)
 
   })
 }

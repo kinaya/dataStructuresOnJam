@@ -28,23 +28,16 @@ const PerformanceTest = () => {
         setBubbleSortResult(event.data.data)
       }
     })
+    webWorker.addEventListener('error', event => {
+      console.log('Error from web worker', event)
+    })
   }, []);
-
-
-/*  useEffect(() => {
-    worker = new WebWorkerEnabler(worker);
-    worker.addEventListener('message', event => {
-      console.log('Message from web worker received!')
-    });
-  }, [])*/
 
   const testPerformance = async () => {
 
     webWorker.postMessage('bubbleSort');
     webWorker.postMessage('insertionSort');
     webWorker.postMessage('selectionSort');
-
-    //theWorker.postMessage('some data');
 
 /*    workerInstance.addEventListener("message", e => {
                 console.log("Received response:");

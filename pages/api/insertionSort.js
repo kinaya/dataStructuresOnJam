@@ -13,6 +13,12 @@ const insertionSort = (array) => {
       }
     }
 
+    for(let i = 0; i < 9000; i++) {
+      for(let y = 0; y < 9000; y++) {
+        console.log(y)
+      }
+    }
+
     var end = process.hrtime(start)
     const seconds = (end[0]* 1000000000 + end[1]) / 1000000000;
 

@@ -20,7 +20,6 @@ const PerformanceTest = () => {
 
     webWorker.addEventListener('message', event => {
       if(event.data.type === 'bubbleSort') {
-
         setBubbleSortResult(event.data.data)
       }
       if(event.data.type === 'insertionSort') {
@@ -62,8 +61,7 @@ const PerformanceTest = () => {
     <Container className="red-bg">
       <h2>Test performance</h2>
       <Paragraph>Click the button below to test the performance of different sorting algorithm. The test will sort an array of 10000 random numbers, and report back the time it took for each.</Paragraph>
-      <StyledButton onClick={testPerformance}>Run test!</StyledButton>
-      is fetching: {isFetching}
+      <StyledButton className={`${isFetching ? 'not-active' : 'active'}`} onClick={isFetching ? undefined : testPerformance}>Run test!</StyledButton>
       <TestGrid>
         <Test name="Bubble Sort" time={bubbleSortResult} />
         <Test name="Insertion Sort" time={insertionSortResult} />
@@ -95,6 +93,10 @@ const StyledButton = styled.button`
   color: white;
   cursor: pointer;
   &:hover {
+    background-color: #333333;
+  }
+  &.not-active {
+    cursor: default;
     background-color: #333333;
   }
 `

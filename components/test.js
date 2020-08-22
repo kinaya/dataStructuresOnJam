@@ -4,8 +4,6 @@ import styled from 'styled-components'
 
 const Test = ({name, time}) => {
 
-  console.log('Test rendering', name, time)
-
   return (
     <StyledTest>
       <h3>{name}</h3>

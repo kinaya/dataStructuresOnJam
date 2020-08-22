@@ -8,6 +8,17 @@ export default () => {
     const url = 'https://jam.alvineandersson.se/api/bubbleSort';
 
     switch(e.data) {
+      case 'test':
+        fetch('https://jam.alvineandersson.se/api/test')
+          .then(res => {
+            res.json()
+          })
+          .then(data => {
+            console.log(data)
+            const msg = {'type' : 'test', 'data' : data}
+            postMessage(msg)
+          })
+
       case 'bubbleSort':
         fetch('https://jam.alvineandersson.se/api/bubbleSort')
           .then(res => {

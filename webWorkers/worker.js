@@ -9,10 +9,10 @@ export default () => {
 
     switch(e.data) {
       case 'bubbleSort':
-        fetch('https://jam.alvineandersson.se/api/bubbleSort')
+        fetch('/api/bubbleSort')
           .then(res => {
+            console.log('res', res)
             res.json()
-            console.log(res.json())
           })
           .then(data => {
             console.log(data)

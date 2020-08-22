@@ -30,7 +30,7 @@ export default async (req, res) => {
   try {
     const result = await bubbleSort(array)
     res.statusCode = 200
-    res.json(result)
+    res.json({result})
   } catch {
     console.log(result)
   }

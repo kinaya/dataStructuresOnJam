@@ -11,8 +11,7 @@ export default () => {
       case 'bubbleSort':
         fetch('https://jam.alvineandersson.se/api/bubbleSort').then(res => {
           console.log('res', res)
-          console.log('res.body', res.body)
-          res.body.json()
+          res.json()
         }).then(data => {
           console.log('data', data)
           const msg = {'type' : bubbleSort, 'data' : data}
@@ -20,6 +19,9 @@ export default () => {
         }).catch(err => {
           console.log('err', err)
         })
+
+      case 'insertionSort':
+      case 'selectionSort':
     }
 
 

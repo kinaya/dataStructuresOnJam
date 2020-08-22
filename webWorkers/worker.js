@@ -5,9 +5,11 @@ export default () => {
     console.log('In the web worker')
     console.log('e', e.data)
 
+    const url = 'https://jam.alvineandersson.se/api/bubbleSort';
+
     switch(e.data) {
       case 'bubbleSort':
-        fetch(url).then(res => {
+        fetch('https://jam.alvineandersson.se/api/bubbleSort').then(res => {
           console.log('res', res)
           console.log('res.body', res.body)
           res.body.json()
@@ -20,7 +22,7 @@ export default () => {
         })
     }
 
-    const url = 'https://jam.alvineandersson.se/api/bubbleSort';
+
 
 
 

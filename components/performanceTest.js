@@ -36,30 +36,13 @@ const PerformanceTest = () => {
   const testPerformance = async () => {
 
     setBubbleSortResult('fetching')
-    setInsertionSortResult('fetching')
-    setSelectionSortResult('fetching')
     webWorker.postMessage('bubbleSort');
+
+    setInsertionSortResult('fetching')
     webWorker.postMessage('insertionSort');
+
+    setSelectionSortResult('fetching')
     webWorker.postMessage('selectionSort');
-
-/*    workerInstance.addEventListener("message", e => {
-                console.log("Received response:");
-                console.log(e.data);
-            }, false);
-            workerInstance.postMessage("bar");
-*/
-/*    const worker = new Worker(worker)
-    worker.addEventListener('message', workerMessage);
-    worker.addEventListener('error', workerError);
-
-    function workerMessage(ev) {
-    	console.log(ev.data)
-    }
-
-    function workerError(ev) {
-      console.log(ev)
-    }*/
-
 
 /*    setBubbleSortResult('fetching')
     await fetch('/api/bubbleSort')

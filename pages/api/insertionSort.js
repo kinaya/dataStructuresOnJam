@@ -13,13 +13,6 @@ const insertionSort = (array) => {
       }
     }
 
-    const array = []
-    for(let i = 0; i < 2000; i++) {
-      for(let y = 0; y < 2000; y++) {
-        array.push(y)
-      }
-    }
-
     var end = process.hrtime(start)
     const seconds = (end[0]* 1000000000 + end[1]) / 1000000000;
 
@@ -31,7 +24,7 @@ const insertionSort = (array) => {
 export default async (req, res) => {
 
   var array = []
-  for(let i = 0; i <= 10000; i++) {
+  for(let i = 0; i <= 50000; i++) {
     array.push(Math.floor(Math.random() * Math.floor(7000)))
   }
 

@@ -1,7 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import Test from './test'
 import styled from 'styled-components'
+
+import worker from '../webWorkers/worker.js';
+import WebWorker from '../webWorkers/workerSetup';
 
 const PerformanceTest = () => {
 
@@ -9,9 +12,49 @@ const PerformanceTest = () => {
   const [insertionSortResult, setInsertionSortResult] = useState(false)
   const [selectionSortResult, setSelectionSortResult] = useState(false)
 
+  var webWorker = false;
+
+  useEffect(() => {
+    webWorker = new WebWorker(worker);
+    webWorker.addEventListener('message', event => {
+      console.log(event.data)
+    })
+  }, []);
+
+
+/*  useEffect(() => {
+    worker = new WebWorkerEnabler(worker);
+    worker.addEventListener('message', event => {
+      console.log('Message from web worker received!')
+    });
+  }, [])*/
+
   const testPerformance = async () => {
 
-    setBubbleSortResult('fetching')
+    webWorker.postMessage('start');
+
+    //theWorker.postMessage('some data');
+
+/*    workerInstance.addEventListener("message", e => {
+                console.log("Received response:");
+                console.log(e.data);
+            }, false);
+            workerInstance.postMessage("bar");
+*/
+/*    const worker = new Worker(worker)
+    worker.addEventListener('message', workerMessage);
+    worker.addEventListener('error', workerError);
+
+    function workerMessage(ev) {
+    	console.log(ev.data)
+    }
+
+    function workerError(ev) {
+      console.log(ev)
+    }*/
+
+
+/*    setBubbleSortResult('fetching')
     await fetch('/api/bubbleSort')
       .then(res => res.json())
       .then(data => {
@@ -30,7 +73,7 @@ const PerformanceTest = () => {
       .then(res => res.json())
       .then(data => {
         setSelectionSortResult(data)
-      })
+      })*/
 
   }
 

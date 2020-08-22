@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import Test from './test'
 import styled from 'styled-components'
-
 import worker from '../webWorkers/worker.js';
 import WebWorker from '../webWorkers/workerSetup';
 
@@ -11,14 +10,17 @@ const PerformanceTest = () => {
   const [bubbleSortResult, setBubbleSortResult] = useState(false)
   const [insertionSortResult, setInsertionSortResult] = useState(false)
   const [selectionSortResult, setSelectionSortResult] = useState(false)
+  const [isFetching, setIsFetching] = useState(false)
 
   var webWorker = false;
 
   useEffect(() => {
+
     webWorker = new WebWorker(worker);
+
     webWorker.addEventListener('message', event => {
-      console.log('message from server', event.data.type, event.data.data)
       if(event.data.type === 'bubbleSort') {
+
         setBubbleSortResult(event.data.data)
       }
       if(event.data.type === 'insertionSort') {
@@ -28,12 +30,22 @@ const PerformanceTest = () => {
         setSelectionSortResult(event.data.data)
       }
     })
+
     webWorker.addEventListener('error', event => {
       console.log('Error from web worker', event)
     })
+
   }, []);
 
-  const testPerformance = async () => {
+  useEffect(() => {
+    if(bubbleSortResult == 'fetching' || insertionSortResult == 'fetching' || selectionSortResult == 'fetching') {
+      setIsFetching(true)
+    } else {
+      setIsFetching(false)
+    }
+  }, [bubbleSortResult, insertionSortResult, selectionSortResult])
+
+  const testPerformance = () => {
 
     setBubbleSortResult('fetching')
     webWorker.postMessage('bubbleSort');
@@ -44,27 +56,6 @@ const PerformanceTest = () => {
     setSelectionSortResult('fetching')
     webWorker.postMessage('selectionSort');
 
-/*    setBubbleSortResult('fetching')
-    await fetch('/api/bubbleSort')
-      .then(res => res.json())
-      .then(data => {
-        setBubbleSortResult(data)
-      })
-
-    setInsertionSortResult('fetching')
-    await fetch('/api/insertionSort')
-      .then(res => res.json())
-      .then(data => {
-        setInsertionSortResult(data)
-      })
-
-    setSelectionSortResult('fetching')
-    await fetch('/api/selectionSort')
-      .then(res => res.json())
-      .then(data => {
-        setSelectionSortResult(data)
-      })*/
-
   }
 
   return (
@@ -72,6 +63,7 @@ const PerformanceTest = () => {
       <h2>Test performance</h2>
       <Paragraph>Click the button below to test the performance of different sorting algorithm. The test will sort an array of 10000 random numbers, and report back the time it took for each.</Paragraph>
       <StyledButton onClick={testPerformance}>Run test!</StyledButton>
+      is fetching: {isFetching}
       <TestGrid>
         <Test name="Bubble Sort" time={bubbleSortResult} />
         <Test name="Insertion Sort" time={insertionSortResult} />

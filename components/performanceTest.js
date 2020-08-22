@@ -17,7 +17,9 @@ const PerformanceTest = () => {
   useEffect(() => {
     webWorker = new WebWorker(worker);
     webWorker.addEventListener('message', event => {
-      console.log(event.data)
+      console.log('Coming back from web worker!')
+      console.log('event', event)
+      console.log('data', event.data)
     })
   }, []);
 
@@ -31,7 +33,7 @@ const PerformanceTest = () => {
 
   const testPerformance = async () => {
 
-    webWorker.postMessage('start');
+    webWorker.postMessage('bubble');
 
     //theWorker.postMessage('some data');
 

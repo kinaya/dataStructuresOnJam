@@ -9,7 +9,7 @@ export default () => {
 
     switch(e.data) {
       case 'bubbleSort':
-        fetch('/api/bubbleSort')
+        fetch('https://jam.alvineandersson.se/api/bubbleSort')
           .then(res => {
             console.log('res', res)
             res.json()
